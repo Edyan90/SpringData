@@ -5,10 +5,7 @@ package Epicode.SpringData.confBeans;
 import Epicode.SpringData.entities.*;
 import Epicode.SpringData.enums.StatoTavoloType;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 
 
 @Configuration
@@ -47,15 +44,16 @@ public class CiboConfig {
 
     //Pizze
     @Bean
+    @Scope("prototype")
     public Pizza margherita() {
         Pizza pizza = new Pizza("Margherita", 7.0, 1104);
-        pizza.addTopping(cheese());
-        pizza.addTopping(tomato());
+//        pizza.addTopping(cheese());
+//        pizza.addTopping(tomato());
         return pizza;
     }
 
     @Bean
-    @Primary
+    @Scope("prototype")
     public Pizza hawaiana() {
         Pizza pizza2 = new Pizza("Hawaiana", 200.0, 1105);
         pizza2.addTopping(ham());
@@ -64,6 +62,7 @@ public class CiboConfig {
     }
 
     @Bean
+    @Scope("prototype")
     public Pizza salami() {
         Pizza pizza3 = new Pizza("Salami", 7.0, 1106);
         pizza3.addTopping(salame());

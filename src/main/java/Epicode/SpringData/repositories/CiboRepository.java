@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CiboRepository extends JpaRepository<Cibo,Long> {
 
-    
+
 }
